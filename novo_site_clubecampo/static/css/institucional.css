@@ -1,0 +1,126 @@
+/* ===== Escopo exclusivo ===== */
+.page-institucional{
+  /* timing/easing centralizados para dar sensação mais suave */
+  --ease-smooth: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-expand: 0.45s;
+  --dur-collapse: 0.42s;
+}
+
+/* Full-bleed e container (mesmo padrão da Home) */
+.page-institucional .section{ padding-block: var(--section-py); padding-inline: var(--section-px); }
+.page-institucional .container{ max-width:1200px; margin-inline:auto; padding-inline:24px; }
+
+/* Grudar fundos nas bordas */
+.page-institucional .full-bleed{ inline-size:100vw; margin-inline:calc(50% - 50vw); }
+
+/* ===== Títulos no padrão da Home, CENTRALIZADOS ===== */
+.page-institucional .head{ text-align:center; }
+.page-institucional .h-section.with-underline{
+  color: inherit;
+  position: relative;
+  padding-bottom:.35rem;
+  margin:.75rem 0 1rem;
+}
+.page-institucional .h-section.with-underline::after{
+  content:""; position:absolute; left:50%; transform:translateX(-50%);
+  bottom:0; width:72px; height:3px; background: currentColor; border-radius:2px;
+}
+
+/* Subtítulo centralizado */
+.page-institucional .sub{ opacity:.92; margin-top:.25rem; text-align:center; }
+
+/* Texto igual Home (justificado) */
+.page-institucional p{
+  text-align: justify; text-justify: inter-word; hyphens: auto;
+  color: var(--c-text, #111); font-family: var(--ff-body);
+}
+
+/* Cores por fundo */
+.page-institucional .bg-f1{ color:#111; }   /* bege */
+.page-institucional .bg-f2{ color:#fff; }   /* azul */
+.page-institucional .bg-f2 p,
+.page-institucional .bg-f2 .sub,
+.page-institucional .bg-f2 .h-section{ color:#fff; }
+
+/* ===== Palavra do Presidente ===== */
+.page-institucional .texto-colapsavel{ max-width:980px; margin:0 auto; }
+/* Animação em CSS para suavizar abertura/fechamento.
+   O JS apenas alterna .is-collapsed; aqui garantimos a transição. */
+.page-institucional #presidente-texto{
+  overflow:hidden;
+  max-height: 200rem;                 /* “aberto” */
+  transition: max-height var(--dur-expand) var(--ease-smooth);
+}
+.page-institucional #presidente-texto.is-collapsed{
+  max-height: 15rem;                  /* “fechado” (~8–10 linhas) */
+  transition-duration: var(--dur-collapse);
+}
+.page-institucional .acoes{ margin-top:1rem; display:flex; justify-content:center; }
+
+/* ===== Cards (FLEX pra centralizar última linha) ===== */
+.page-institucional .grid-cards{
+  display:flex; flex-wrap:wrap; gap:.9rem; justify-content:center;
+  list-style:none; padding:0; margin-top:1rem;
+}
+.page-institucional .card-person{
+  flex: 1 1 260px; max-width: 340px;
+  padding:.95rem 1rem 1.05rem; border-radius:14px;
+  border:1px solid currentColor; background:transparent;
+  transition:
+    background .25s var(--ease-smooth),
+    box-shadow .28s var(--ease-smooth),
+    color .25s var(--ease-smooth),
+    border-color .25s var(--ease-smooth);
+}
+.page-institucional .card-person .name{ margin:0 0 .3rem; font:700 1rem/1.35 var(--ff-heading); }
+.page-institucional .card-person .role{ margin:0; opacity:.96; }
+
+/* Hover por fundo + BRILHO pedido */
+/* Bege: contorno azul + brilho azul */
+.page-institucional .bg-f1 .card-person{ color:rgba(17,17,17,.96); border-color:rgba(26,75,140,.45); }
+.page-institucional .bg-f1 .card-person:is(:hover,:focus-visible){
+  background:rgba(26,75,140,.06); color:#1a4b8c; border-color:rgba(26,75,140,.85);
+  box-shadow:
+    0 0 0 3px rgba(26,75,140,.25),   /* anel azul (brilho) */
+    0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Azul: contorno bege + brilho “prata/bege” */
+.page-institucional .bg-f2 .card-person{ color:#fff; border-color:rgba(242,234,221,.85); }
+.page-institucional .bg-f2 .card-person:is(:hover,:focus-visible){
+  background:rgba(242,234,221,.10); color:#f2eadd; border-color:rgba(242,234,221,1);
+  box-shadow:
+    0 0 0 3px rgba(242,234,221,.35),
+    0 8px 24px rgba(0,0,0,.28);
+}
+
+/* Documentos */
+.page-institucional .docs{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
+.page-institucional .btn-doc{
+  min-width:220px;
+  text-align:center;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+
+/* Animação suave para itens que aparecem via "Ver todos" */
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(8px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.page-institucional .card-person.fade-in { animation: fadeInUp .32s var(--ease-smooth); }
+
+/* Utilitário */
+.page-institucional .is-hidden{ display:none !important; }
+
+/* ===== Acessibilidade / Movimento reduzido ===== */
+@media (prefers-reduced-motion: reduce){
+  .page-institucional #presidente-texto,
+  .page-institucional .card-person{ transition: none !important; }
+  .page-institucional .card-person.fade-in{ animation: none !important; }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 640px){
+  .page-institucional .btn-doc{ width:100%; }
+  .page-institucional .card-person{ flex:1 1 100%; max-width:100%; }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <meta charset="utf-8">
+  <body style="margin:0;padding:0;background:#f6f8fb">
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f6f8fb;padding:24px 0;">
+      <tr>
+        <td align="center">
+          <table width="640" cellpadding="0" cellspacing="0" role="presentation" style="width:640px;max-width:94%;background:#ffffff;border:1px solid #e6eaf1;border-radius:12px;font:16px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#111;">
+            <tr>
+              <td style="padding:20px 24px 8px;">
+                <h2 style="margin:0 0 6px;font:700 20px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#111;">Nova mensagem pelo site</h2>
+                <p style="margin:0 0 16px;color:#333;">Home &gt; Contato</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 24px 16px;">
+                <p style="margin:0 0 6px;"><strong>Nome:</strong> {{ nome }}</p>
+                <p style="margin:0 0 6px;"><strong>Telefone:</strong> {{ telefone|default:"—" }}</p>
+                <p style="margin:0 0 6px;"><strong>E-mail:</strong> {{ email }}</p>
+                <p style="margin:0 0 6px;"><strong>Assunto:</strong> {{ assunto }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 24px 24px;">
+                <hr style="border:none;border-top:1px solid #e6eaf1;margin:0 0 16px;">
+                <div style="white-space:pre-wrap;word-wrap:break-word;color:#111;">{{ mensagem }}</div>
+              </td>
+            </tr>
+          </table>
+          <div style="font:12px/1.4 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#6b7280;margin-top:10px;">
+            Este e-mail foi gerado automaticamente pelo site.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+{% load static %}
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="{% url 'inicio' %}" class="logo-wrap" title="Clube de Campo de Tatuí">
+      <img src="{% static 'img/logo_clube_campo.png' %}" alt="Clube de Campo de Tatuí" class="logo">
+      <span class="brand-name">Clube de Campo de Tatuí</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Navegação principal">
+      {% with current=request.resolver_match.url_name %}
+      <ul>
+        <li>
+          <a href="{% url 'inicio' %}"
+             class="{% if current == 'inicio' %}is-active{% endif %}">Início</a>
+        </li>
+        <li>
+          <a href="{% url 'estrutura' %}"
+             class="{% if current == 'estrutura' %}is-active{% endif %}">Estrutura</a>
+        </li>
+        <li>
+          <a href="{% url 'institucional' %}"
+             class="{% if current == 'institucional' %}is-active{% endif %}">Institucional</a>
+        </li>
+        <li>
+          <!-- Contato é âncora na Home -->
+          <a id="link-contato" href="{% url 'inicio' %}#contato">Contato</a>
+        </li>
+      </ul>
+      {% endwith %}
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Marca "Contato" como ativo quando vier com #contato
+  (function () {
+    try {
+      if (location.hash === '#contato') {
+        var a = document.getElementById('link-contato');
+        if (a) a.classList.add('is-active');
+      }
+    } catch (_) {}
+  })();
+</script>

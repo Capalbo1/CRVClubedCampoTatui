@@ -1,0 +1,9 @@
+Nova mensagem pelo site (Home > Contato)
+
+Nome: {{ nome }}
+Telefone: {{ telefone|default:"—" }}
+E-mail: {{ email }}
+Assunto: {{ assunto }}
+
+Mensagem:
+{{ mensagem }}

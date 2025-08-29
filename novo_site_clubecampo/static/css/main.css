@@ -1,0 +1,392 @@
+/* =========================================================
+   TOKENS / CORES / TIPOGRAFIA (globais)
+   ========================================================= */
+:root{
+  /* Tipografia global */
+  --ff-heading:'Sora',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --ff-body:'Manrope',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  /* Acentos (com fallback) */
+  --vermelho-500: #d81f26;
+  --accent: var(--vermelho-500, #d81f26);
+  --accent-2: #ff5a5f;
+
+  /* Paleta azul (para componentes globais como botões/campos) */
+  --c-blue-primary: #1a4b8c;
+  --c-blue-secondary: #2a6fd6;
+  --c-blue-hover: #3a7ee6;
+  --c-blue-light: #e8f1ff;
+  --c-blue-glow: rgba(42,111,214,.28);
+
+  /* Contornos de campos (compatível com Contato) */
+  --field-border: rgba(26,75,140,.42);
+  --field-border-hover: rgba(26,75,140,.9);
+  --field-glow: var(--c-blue-glow);
+
+  /* Tinta / texto */
+  --ink: #0f172a;        /* títulos/links no header */
+  --muted: #475569;
+
+  /* Vidro (glass) */
+  --glass-bg: rgba(255,255,255,.72);
+  --glass-bd: rgba(120,150,170,.35);
+
+  /* Layout global */
+  --section-py: clamp(56px, 8vw, 120px);
+  --section-px: clamp(16px, 3vw, 32px);
+  --block-gap: clamp(12px, 2.2vw, 28px);
+}
+
+/* =========================================================
+   LAYOUT GLOBAL (base)
+   ========================================================= */
+html, body{ margin:0; padding:0; overflow-x:hidden; }
+
+/* Tipografia base (mantém Home; se inicio.css tiver overrides, ele prevalece) */
+body{ font-family: var(--ff-body); color: var(--ink); }
+h1,h2,h3{ font-family: var(--ff-heading); }
+
+section > *:first-child { margin-top: 0; }
+.section > *:last-child  { margin-bottom: 0; }
+
+/* Container centralizador reutilizável */
+.container{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* Utilitário de gap para grids/listas/pilhas */
+.grid, .cards, .stack{ gap: var(--block-gap); }
+
+/* Seção padrão (pode ser sobrescrita nas páginas) */
+.section{
+  padding-block: var(--section-py);
+  padding-inline: var(--section-px);
+  margin: 0;
+}
+
+/* =========================================================
+   HEADER (site-header) — glass + sticky + underline animado
+   ========================================================= */
+.site-header{
+  position: sticky; top: 0; z-index: 60;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.58)), /* overlay leve */
+    url("/static/img/fundo_bege.png") center/cover no-repeat;               /* texture visível */
+  border-bottom: 1px solid rgba(16,20,24,.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+.site-header .container{
+  max-width: min(1320px, 96vw);     /* header mais largo */
+  padding-inline: clamp(16px,3vw,24px);
+  padding-block: 12px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+
+.logo-wrap{ display:flex; align-items:center; gap:10px; min-height:52px; }
+.logo-wrap .logo{ height:60px; width:auto; display:block; }
+@media (max-width: 980px){
+  .logo-wrap{ min-height:44px; }
+  .logo-wrap .logo{ height:38px; }
+}
+
+.brand-name{
+  font: 800 clamp(14px, 1.4vw, 18px)/1 var(--ff-heading);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color:#0f172a;
+  white-space: nowrap;
+  max-width: clamp(220px, 28vw, 420px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 980px){
+  .brand-name{ display:none; } /* no mobile, cabe só a marca */
+}
+
+/* Navegação principal */
+.primary-nav ul{
+  list-style:none; padding:0; margin:0;
+  display:flex; align-items:center; gap: clamp(18px, 3vw, 36px);
+}
+.primary-nav a{
+  position:relative; display:inline-block; padding:8px 2px;
+  font:700 1rem/1 'Sora', ui-sans-serif;
+  color:#0f172a; text-decoration:none; transition: color .2s ease;
+}
+.primary-nav a:hover{ color:#0c1b39; }
+
+/* underline animado (hover/ativo) */
+.primary-nav a::after{
+  content:""; position:absolute; left:50%; bottom:-6px; height:2px; width:0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius:2px; transition: width .22s ease, left .22s ease;
+}
+.primary-nav a:hover::after,
+.primary-nav a.is-active::after{ width:100%; left:0; }
+
+/* =========================================================
+   BOTÕES (globais) — usados por TODAS as páginas
+   ========================================================= */
+.btn{
+  display:inline-block;
+  padding:.85rem 1.4rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-family:var(--ff-heading);
+  font-weight:600;
+  transition:all .25s ease;
+  border:2px solid transparent;
+  line-height:1;
+}
+.btn--wide{ padding:.9rem 1.8rem; }
+
+.btn-primary{
+  color:#fff;
+  background:var(--c-blue-primary);
+  border-color:var(--c-blue-primary);
+  position:relative; overflow:hidden;
+  box-shadow:0 10px 22px rgba(26,75,140,.18);
+}
+.btn-primary:hover{
+  background:linear-gradient(90deg,var(--c-blue-primary),var(--c-blue-secondary));
+  box-shadow:0 12px 26px rgba(26,75,140,.28);
+  transform:translateY(-2px);
+}
+.btn-primary::after{
+  content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  transition:left .7s ease;
+}
+.btn-primary:hover::after{ left:100%; }
+
+.btn-outline{
+  color:var(--c-blue-primary);
+  background:#fff;
+  border-color:var(--c-blue-primary);
+}
+.btn-outline:hover{
+  color:#fff;
+  background:var(--c-blue-primary);
+  box-shadow:0 10px 22px rgba(26,75,140,.18);
+  transform:translateY(-2px);
+}
+
+/* =========================================================
+   FOOTER (site-footer) — fundo azul + crédito CRV clicável
+   ========================================================= */
+.site-footer{
+  color:#fff;
+  background:
+    radial-gradient(1200px 500px at 50% -20%, rgba(255,255,255,.08), transparent 60%),
+    url("/static/img/fundo_azul.png") center/cover no-repeat;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.footer-inner{
+  max-width: 1120px; margin:0 auto; padding:28px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.footer-brand{ font:700 1.05rem/1.2 'Sora', ui-sans-serif; margin:0 0 6px; }
+.footer-meta{ margin:0; opacity:.92; font:500 .95rem/1.4 'Manrope', system-ui; }
+
+/* CRV clicável (logo pequena) */
+.crv-credit{
+  display:inline-flex; align-items:center; gap:10px;
+  color:#fff; text-decoration:none;
+  padding:8px 12px; border-radius:12px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.crv-credit img{ height:50px; width:auto; display:block; filter: drop-shadow(0 1px 2px rgba(0,0,0,.3)); }
+.crv-credit:hover{
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
+/* Responsivo footer */
+@media (max-width: 720px){
+  .footer-inner{ flex-direction:column; align-items:flex-start; gap:12px; }
+  .crv-credit{ align-self:flex-start; }
+}
+/* ==========================================================================
+   EXTENSÕES GLOBAIS — NÃO QUEBRA O QUE JÁ EXISTE
+   (para páginas Estrutura/Institucional usarem o mesmo padrão da Home)
+   ========================================================================== */
+
+/* -------- Background helpers (fundo_bege / fundo_azul) ------------------- */
+.bg-f1{ /* bege */
+  background: url('../img/fundo_bege.png') center / cover fixed no-repeat;
+}
+.bg-f2{ /* azul */
+  background: url('../img/fundo_azul.png') center / cover fixed no-repeat;
+}
+
+/* Faz o background "sangrar" até as bordas sem tirar a largura da .container */
+.full-bleed{ position: relative; }
+.full-bleed::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  background: inherit;
+  z-index: 0;
+}
+.full-bleed > *{ position:relative; z-index: 1; }
+
+/* Alternar tema claro/escuro da seção quando usada sobre o fundo azul */
+.theme-dark,
+.theme-dark p,
+.theme-dark .lead,
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6{ color: #fff; }
+.theme-dark a{ color:#fff; }
+.theme-dark a:hover{ color:#e7f0ff; }
+
+/* -------- Seções --------------------------------------------------------- */
+.section{ padding: clamp(40px, 6vw, 80px) 0; }
+.section .section-title{ margin-bottom: 20px; }
+.section .lead{ margin-bottom: 28px; }
+
+/* -------- Utilitários de grid e espaçamento ------------------------------ */
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.5vw, 32px);
+}
+@media (max-width: 900px){
+  .grid-2{ grid-template-columns: 1fr; }
+}
+.stack-sm > * + *{ margin-top: .5rem; }
+.stack-md > * + *{ margin-top: 1rem; }
+.stack-lg > * + *{ margin-top: 1.5rem; }
+
+/* -------- Imagens / media ------------------------------------------------ */
+.media-frame{
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.20);
+  background: #0b1c2b;
+}
+.media-frame img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* Galerias simples 2 colunas (usado em Estrutura) */
+.gallery-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.gallery-2 img{
+  width:100%; height:auto; display:block; border-radius:14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.20);
+}
+@media (max-width: 900px){
+  .gallery-2{ grid-template-columns: 1fr; }
+}
+
+/* -------- Botão primário com "silver neon" ------------------------------- */
+.btn-primary,
+a.btn-primary{
+  background: #153a6d;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.25),
+    inset 0 0 0 0 rgba(192,198,208,0);
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+.btn-primary:hover{
+  border-color:#C0C6D0;
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.35),
+    0 0 0 3px rgba(192,198,208,.25); /* silver glow */
+  transform: translateY(-1px);
+}
+
+/* -------- Campos de formulário com foco prateado ------------------------ */
+input[type="text"], input[type="email"], input[type="tel"],
+input[type="search"], select, textarea{
+  outline: 0;
+  transition: box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+}
+input:focus, textarea:focus, select:focus{
+  border-color:#C0C6D0 !important;
+  box-shadow: 0 0 0 3px rgba(192,198,208,.25);
+}
+
+/* -------- Títulos centralizados opcionais -------------------------------- */
+.title-center{ text-align:center; }
+.title-center .section-title{ margin-left:auto; margin-right:auto; }
+.title-center .lead{ margin-left:auto; margin-right:auto; max-width: 65ch; }
+
+/* -------- Footer ---------------------------------------------------------- */
+.site-footer{ position:relative; z-index:2; }
+
+/* =========================================================
+   VOLTAR AO TOPO (global, discreto, acessível)
+   ========================================================= */
+:root{
+  --btt-size: 46px;
+  --btt-bg: var(--c-blue-primary);
+  --btt-bg-hover: var(--c-blue-secondary);
+  --btt-shadow: 0 10px 24px rgba(0,0,0,.22);
+}
+
+.back-to-top{
+  position: fixed;
+  right: clamp(16px, 2.2vw, 28px);
+  bottom: clamp(16px, 2.2vw, 28px);
+  width: var(--btt-size);
+  height: var(--btt-size);
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--btt-bg);
+  color: #fff;
+  box-shadow: var(--btt-shadow);
+  border: 0;
+  cursor: pointer;
+  z-index: 999; /* acima do conteúdo */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease, background .15s ease;
+  pointer-events: none; /* não intercepta cliques quando escondido */
+}
+.back-to-top i{ font-size: 1rem; line-height: 1; }
+
+.back-to-top.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover{ background: var(--btt-bg-hover); }
+.back-to-top:focus{ outline: none; }
+.back-to-top:focus-visible{
+  box-shadow: 0 0 0 3px rgba(30,64,175,.35), var(--btt-shadow);
+}
+
+/* Respeita usuários com movimento reduzido */
+@media (prefers-reduced-motion: reduce){
+  .back-to-top{ transition: none; }
+}
+
+/* Em impressão não precisa aparecer */
+@media print{
+  .back-to-top{ display: none !important; }
+}

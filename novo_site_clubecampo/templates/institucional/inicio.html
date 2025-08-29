@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=contato_neon_azul">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section id="hero" class="hero full-bleed">
+  <!-- BG em carrossel (revezando as 4 fotos) -->
+  <div class="hero-bg">
+    <div class="carousel" data-autoplay="5000">
+      <div class="carousel__track">
+        <img src="{% static 'img/img1.png' %}" alt="" class="carousel__slide">
+        <img src="{% static 'img/paisagem1.png' %}" alt="" class="carousel__slide">
+        <img src="{% static 'img/paisagem4.png' %}" alt="" class="carousel__slide">
+        <img src="{% static 'img/paisagem3.png' %}" alt="" class="carousel__slide">
+      </div>
+      <button class="carousel__btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="carousel__btn next" aria-label="Próxima"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="carousel__dots" aria-label="Navegação"></div>
+    </div>
+  </div>
+
+  <div class="hero__overlay"></div>
+
+  <!-- Logo aplicada sobre a imagem do Hero -->
+  <div class="hero-badge">
+    <img src="{% static 'img/logo_clube_campo.png' %}" alt="Clube de Campo de Tatuí">
+  </div>
+
+  <div class="hero__inner container">
+    <div class="hero-card">
+      <h1>Bem-vindo ao Clube de Campo de Tatuí!</h1>
+      <p>Tradição, esporte e lazer desde 1959. Um lugar para viver experiências inesquecíveis.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn--wide" href="{% url 'institucional' %}">Quero ser associado</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE / BREVE HISTÓRIA -->
+<section id="breve-historia" class="section bg-f1 full-bleed">
+  <div class="container">
+    <div class="about about--history">
+      <div class="about__text">
+        <h2 class="h-section">Breve história</h2>
+        <p>
+          Fundado em <strong>15 de novembro de 1959</strong> por um grupo de amigos de Tatuí, o
+          Clube de Campo nasceu como associação sem fins políticos, religiosos ou filosóficos.
+          Desde o início, promove convivência, esporte, cultura e cidadania — preservando áreas verdes e o
+          espírito comunitário.
+        </p>
+        <p>
+          Com o tempo, tornou-se referência de lazer para as famílias da cidade. Entre realizações e conquistas
+          esportivas (como <strong>futebol</strong> e <strong>judô</strong>), o Clube manteve seu propósito:
+          acolher pessoas e incentivar hábitos saudáveis.
+        </p>
+      </div>
+
+      <figure class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <img src="{% static 'img/historia1.png' %}" alt="" class="carousel__slide">
+              <img src="{% static 'img/historia2.png' %}" alt="" class="carousel__slide">
+              <img src="{% static 'img/historia3.png' %}" alt="" class="carousel__slide">
+            </div>
+            <button class="carousel__btn prev" aria-label="Imagem anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel__btn next" aria-label="Próxima imagem"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel__dots" role="tablist" aria-label="Navegação do carrossel"></div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <!-- BLOCO CONQUISTAS (mesma seção) -->
+  <div class="container">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h3 class="h-section">Conquistas</h3>
+        <p>
+          Ao longo dos anos, equipes e atletas do Clube somaram troféus em campeonatos municipais
+          e regionais — do futebol ao judô, do tênis à natação. Nossa vitrine celebra essa
+          trajetória construída por associados, professores e voluntários.
+        </p>
+      </div>
+      <figure class="about__media">
+        <div class="media-frame">
+          <img src="{% static 'img/trofeus.png' %}" alt="Vitrine de troféus do Clube de Campo de Tatuí" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- O CLUBE HOJE -->
+<section id="hoje" class="section bg-f2 theme-dark full-bleed">
+  <div class="container">
+    <div class="about about--reverse">
+      <figure class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <img src="{% static 'img/academia2.png' %}" alt="Academia do Clube" class="carousel__slide">
+              <img src="{% static 'img/pqinfantil1.png' %}" alt="Parque infantil" class="carousel__slide">
+              <img src="{% static 'img/piscinaaquecida1.png' %}" alt="Piscina aquecida" class="carousel__slide">
+              <img src="{% static 'img/pesqueiro2.png' %}" alt="Pesqueiro" class="carousel__slide">
+            </div>
+            <button class="carousel__btn prev" aria-label="Imagem anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel__btn next" aria-label="Próxima imagem"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel__dots" role="tablist" aria-label="Navegação do carrossel"></div>
+          </div>
+        </div>
+      </figure>
+
+      <div class="about__text">
+        <h2 class="h-section">O Clube hoje</h2>
+        <p>
+          Hoje o Clube reúne <strong>infraestrutura moderna e bem cuidada</strong> para esporte, bem-estar e
+          convivência social — tudo em meio ao verde. É um espaço preparado para receber associados de todas as idades.
+        </p>
+
+        <h2 class="h-section">Nossa estrutura</h2>
+        <p>
+          Academia completa, conjunto aquático com piscina aquecida, ginásio poliesportivo, campos de futebol e de areia,
+          quadras de tênis e bocha, sauna, quiosques, salões sociais, sala de artes marciais, parque infantil e pesqueiro.
+        </p>
+        <a class="btn btn-primary" href="{% url 'estrutura' %}">Conheça a estrutura</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUES / FEATURES -->
+<section id="destaques" class="section bg-f1 full-bleed">
+  <div class="container container--wide">
+
+    <!-- TÍTULO + SUBTÍTULO (centralizados, padrão root) -->
+    <header class="head center">
+      <h2 class="h-section with-underline">Destaques do Clube</h2>
+      <p class="intro">Conheça nossas principais atrações e serviços em destaque.</p>
+    </header>
+
+    <div class="panel">
+      <div class="features-carousel" aria-label="Atrações do clube">
+        <div class="features-track" style="--featDuration: 60s">
+          <a class="feature" href="{% url 'estrutura' %}" style="--thumb: url('/static/img/balneario1.png')">
+            <i class="fa-solid fa-water-ladder" aria-hidden="true"></i>
+            <h3>Conjunto aquático</h3>
+            <p>Piscina principal, infantil e área de lazer.</p>
+          </a>
+          <a class="feature" href="{% url 'estrutura' %}" style="--thumb: url('/static/img/quadrapoli1.png')">
+            <i class="fa-solid fa-person-running" aria-hidden="true"></i>
+            <h3>Ginásio poliesportivo</h3>
+            <p>Eventos e treinos o ano todo.</p>
+          </a>
+          <a class="feature" href="{% url 'estrutura' %}" style="--thumb: url('/static/img/piscinaaquecida1.png')">
+            <i class="fa-solid fa-person-swimming" aria-hidden="true"></i>
+            <h3>Piscina aquecida</h3>
+            <p>Natação e hidro com conforto térmico.</p>
+          </a>
+          <a class="feature" href="{% url 'estrutura' %}" style="--thumb: url('/static/img/campo3.png')">
+            <i class="fa-solid fa-futbol" aria-hidden="true"></i>
+            <h3>Campo de futebol</h3>
+            <p>Jogos, treinos e campeonatos.</p>
+          </a>
+          <a class="feature" href="{% url 'estrutura' %}" style="--thumb: url('/static/img/pesqueiro1.png')">
+            <i class="fa-solid fa-fish" aria-hidden="true"></i>
+            <h3>Pesqueiro</h3>
+            <p>Lazer em contato com a natureza.</p>
+          </a>
+          <a class="feature" href="{% url 'estrutura' %}" style="--thumb: url('/static/img/quiosque1.png')">
+            <i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i>
+            <h3>Quiosques</h3>
+            <p>Churrasco e convivência em família.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="section bg-f2 theme-dark full-bleed">
+  <div class="container">
+    <header class="contact-header section--center">
+      <h2 class="h-section">Fale com a gente</h2>
+      <p class="section-intro">Dúvidas, sugestões ou interesse em se associar? Envie sua mensagem ou faça uma visita.</p>
+    </header>
+    <div class="contact-grid contact-3col">
+      <div class="contact-card contact-card--blue">
+        <div class="contact-card__grid">
+          {% if messages %}
+            <div class="flash">
+              {% for message in messages %}
+                <div class="flash__item {{ message.tags }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <form class="contact-form" action="{% url 'contato_enviar' %}" method="post">
+            {% csrf_token %}
+            <div class="grid-2">
+              <input type="text" class="field field--soft" name="nome" placeholder="Nome" required>
+              <input type="tel"  class="field field--soft" name="telefone" placeholder="Telefone" required>
+            </div>
+            <div class="grid-2">
+              <input type="email" class="field field--soft" name="email" placeholder="Email" required>
+              <input type="text"  class="field field--soft" name="assunto" placeholder="Assunto" required>
+            </div>
+            <textarea class="field field--soft" name="mensagem" placeholder="Mensagem" required></textarea>
+
+            <!-- honeypot anti-spam -->
+            <input
+              type="text" name="website"
+              style="position:absolute;left:-10000px;opacity:0"
+              tabindex="-1"
+              autocomplete="new-password"
+              inputmode="none"
+              aria-hidden="true"
+            >
+
+            <button class="btn btn-primary btn--wide" type="submit">Enviar</button>
+          </form>
+
+          <aside class="contact-info contact-info--onblue contact-info--compact">
+            <h3>Endereços</h3>
+            <ul>
+              <li><i class="fa-solid fa-location-dot"></i><span>R. Onze de Agosto, 3092, Valinhos, Tatuí – SP</span></li>
+              <li><i class="fa-solid fa-envelope"></i><span>secretaria@clubedecampodetatui.com.br</span></li>
+              <li><i class="fa-solid fa-phone"></i><span>(15) 3251-4080 | (15) 3251-6095</span></li>
+            </ul>
+
+            <h3>Horários de Funcionamento</h3>
+            <ul class="hours">
+              <li>Terça a Sexta -<strong>6h às 22h</strong></li>
+              <li>Sábado e Domingo -<strong>7h às 22h</strong></li>
+              <li><em>*Fechamos às segundas-feiras</em></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+
+      <div class="phone-col">
+        <div class="phone-wrap">
+          <img class="phone-img" src="{% static 'img/img12.png' %}" alt="">
+          <div class="phone-overlay">
+            <img class="phone-logo" src="{% static 'img/logo_clube_campo.png' %}" alt="Logo do Clube">
+            <p class="phone-caption">Siga o Clube nas redes!</p>
+            <a class="chip inphone insta" href="https://www.instagram.com/clubedecampodetatuioficial/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram"></i><span>Instagram</span>
+            </a>
+            <a class="chip inphone yt" href="https://www.youtube.com/@clubedecampodetatui9549" target="_blank" rel="noopener">
+              <i class="fa-brands fa-youtube"></i><span>YouTube</span>
+            </a>
+            <a class="chip inphone face" href="https://www.facebook.com/CCTATUI/?ref=_xav_ig_profile_page_web#" target="_blank" rel="noopener">
+              <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Localização: centralizado (título + parágrafo) -->
+    <h3 class="h-section" style="margin-top: 28px;">Venha nos visitar</h3>
+    <p class="section-intro">Estamos localizados em área de fácil acesso, a poucos minutos do centro e de qualquer região da cidade.
+     </p>
+    <div class="map-card">
+      <iframe class="map-embed" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Clube%20de%20Campo%20de%20Tatu%C3%AD&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<script defer src="{% static 'js/inicio.js' %}?v=contato_neon_azul"></script>
+{% endblock %}

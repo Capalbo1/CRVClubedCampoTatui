@@ -1,0 +1,263 @@
+/* ==========================================================================
+   ESTRUTURA — CSS LOCAL (espelha a Home)
+   - full-bleed da seção bege/azul
+   - container 1120px com padding
+   - grid 2 colunas .about (1.1fr | 0.9fr) com alternância .about--reverse
+   - mídia padronizada (16/10, cover)
+   - card "Horários & normas" = visual do card azul de Contato (hover prateado)
+   ========================================================================== */
+
+/* ---------- Full-bleed das seções (mesmo comportamento da Home) ---------- */
+.estrutura-page .section{
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw); /* faz o fundo pegar a tela toda */
+}
+
+/* ---------- Container 1120px para conteúdo interno ---------- */
+.estrutura-page .section > .about,
+.estrutura-page .container-narrow{
+  max-width: 1120px;                 /* igual .container da Home */
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 24px);
+}
+
+/* ---------- Grid 2 colunas + alternância (espelha Home) ---------- */
+.estrutura-page .section > .about{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* texto | mídia */
+  gap: clamp(20px, 3.5vw, 40px);
+  align-items: center;
+}
+/* TÍTULOS — mesmo padrão da Home (.h-section + underline) */
+.estrutura-page .h-section{
+  position: relative;
+  padding-bottom: .35rem;
+  margin: .75rem 0 1rem;
+  /* tipografia já herda de main.css */
+}
+.estrutura-page .h-section::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 72px;      /* mesmo comprimento da Home */
+  height: 3px;      /* mesma espessura */
+  background: #111; /* cor padrão clara */
+  border-radius: 2px;
+}
+
+/* underline branco em fundos escuros e no card azul */
+.estrutura-page .theme-dark .h-section::after,
+.estrutura-page .bg-f2.theme-dark .h-section::after,
+.estrutura-page .schedule-card .h-section::after{
+  background: #fff;
+}
+
+@media (min-width: 981px){
+  .estrutura-page .about--reverse .about__media{ order: 1; }
+  .estrutura-page .about--reverse .about__text{  order: 2; }
+}
+
+@media (max-width: 980px){
+  .estrutura-page .section > .about{ grid-template-columns: 1fr; }
+}
+
+/* ---------- Mídia padronizada (frame + imagem) ---------- */
+.estrutura-page .about__media{ width: 100%; }
+.estrutura-page .media-frame{
+  width: 100%;
+  aspect-ratio: 16 / 10;             /* mesmo ratio usado na Home */
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0,0,0,.18);
+  background: rgba(0,0,0,.05);
+}
+.estrutura-page .media-frame > img{
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* ---------- Carrossel: garantias locais (Home já estiliza o resto) ---------- */
+.estrutura-page .carousel{ position: relative; height: 100%; }
+.estrutura-page .carousel__track{
+  display: flex; height: 100%;
+  transition: transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.estrutura-page .carousel__slide{ min-width: 100%; height: 100%; }
+.estrutura-page .carousel__slide img{ width: 100%; height: 100%; object-fit: cover; }
+
+/* setas/dots fallback (mantém visual se Home não aplicar) */
+.estrutura-page .carousel__btn{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  inline-size: 40px; block-size: 40px; display: grid; place-items: center;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,.35); color: #fff; cursor: pointer; z-index: 2;
+  backdrop-filter: blur(6px);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.estrutura-page .carousel__btn:hover{
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(0,0,0,.55); border-color: rgba(255,255,255,.6);
+}
+.estrutura-page .carousel__btn.prev{ left: 10px; }
+.estrutura-page .carousel__btn.next{ right: 10px; }
+.estrutura-page .carousel__dots{
+  position: absolute; inset-block-end: 10px; inset-inline: 0;
+  display: flex; justify-content: center; gap: 8px; z-index: 2;
+}
+.estrutura-page .carousel__dots .carousel__dot{
+  inline-size: 8px; block-size: 8px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(255,255,255,.25); cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.estrutura-page .carousel__dots .carousel__dot.is-active{
+  background: #fff; transform: scale(1.25);
+}
+
+@media (max-width: 980px){
+  .estrutura-page .carousel__btn{ inline-size: 36px; block-size: 36px; }
+}
+
+/* ==========================================================================
+   CARD "HORÁRIOS & NORMAS" — mesmo look do card azul de Contato
+   ========================================================================== */
+.schedule-card{
+  --card-bg: rgba(10, 22, 36, .82);
+  --card-br: 18px;
+  --card-bd: 1px solid rgba(255,255,255,.14);
+  --card-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.06);
+
+  --field-bg: rgba(8,18,30,.72);
+  --field-text: #eaf1f9;
+  --prata: rgba(192,192,192,.35);
+  --prata-strong: rgba(230,230,230,.6);
+  --focus-glow: 0 0 0 3px rgba(192,192,192,.25);
+
+  --chip-bg: rgba(8,18,30,.55);
+  --chip-text: rgba(255,255,255,.92);
+
+  border-radius: var(--card-br);
+  background: var(--card-bg);
+  border: var(--card-bd);
+  box-shadow: var(--card-shadow);
+  color: #e8eef6;
+
+  padding: clamp(18px, 2.8vw, 28px);
+  margin: clamp(24px, 4vw, 36px) auto;
+
+  backdrop-filter: blur(8px);
+  transition: border-color .2s ease, box-shadow .25s ease, transform .2s ease, background .25s ease;
+}
+.schedule-card:hover{
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 16px 42px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
+  transform: translateY(-1px);
+}
+
+/* Cabeçalho centralizado */
+.schedule-card .schedule-head{ text-align: center; }
+.schedule-card .schedule-head p{
+  margin-top: 6px; color: rgba(255,255,255,.85); font-size: .98rem;
+}
+
+/* Controles centralizados na "primeira linha" */
+.schedule-card .schedule-controls{
+  margin-top: clamp(10px, 2vw, 16px);
+  display: grid; gap: 10px; justify-items: center;
+}
+.schedule-card .schedule-controls > label{
+  color: rgba(255,255,255,.9);
+}
+
+/* Campo de busca — hover prateado igual ao Form de Contato */
+.schedule-card .field{
+  width: min(760px, 96%);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--prata);
+  background: var(--field-bg);
+  color: var(--field-text);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.schedule-card .field::placeholder{ color: rgba(255,255,255,.75); }
+.schedule-card .field:hover{ border-color: var(--prata-strong); }
+.schedule-card .field:focus{ box-shadow: var(--focus-glow); }
+
+/* Chips centralizados e com hover prateado */
+.schedule-card .filter-chips{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+.schedule-card .chip.filter{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--prata);
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-weight: 500; cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.schedule-card .chip.filter:hover{
+  border-color: var(--prata-strong);
+  background: rgba(18,30,44,.7);
+  transform: translateY(-1px);
+  box-shadow: var(--focus-glow);
+}
+.schedule-card .chip.filter.is-active{
+  background: rgba(240,240,240,.1);
+  border-color: rgba(255,255,255,.8);
+}
+
+/* Lista "tabela" (cards menores em grid) */
+.schedule-card .schedule-list{
+  display: grid;
+  grid-template-columns: 1fr;       /* mobile */
+  gap: 12px;
+  margin-top: clamp(12px, 2vw, 16px);
+}
+@media (min-width: 820px){
+  .schedule-card .schedule-list{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 1200px){
+  .schedule-card .schedule-list{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+/* Itens compactos */
+.schedule-card .schedule-item{
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, transform .2s ease;
+  backdrop-filter: blur(2px);
+}
+.schedule-card .schedule-item:hover{
+  border-color: rgba(255,255,255,.26);
+  background: rgba(255,255,255,.065);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 6px 14px rgba(0,0,0,.2);
+  transform: translateY(-1px);
+}
+
+.schedule-card .schedule-item h4{
+  margin: 0 0 4px 0; font-size: 1rem; color: #fff;
+}
+.schedule-card .schedule-item .time{ font-size: .95rem; color: rgba(255,255,255,.88); font-weight: 500; }
+.schedule-card .schedule-item .note{ font-size: .92rem; color: rgba(255,255,255,.78); }
+
+.schedule-card .schedule-tags{
+  margin-top: 8px; display:flex; gap:8px; flex-wrap:wrap;
+}
+.schedule-card .schedule-tag{
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.06);
+  font-size: .78rem; color: rgba(255,255,255,.9);
+}
+
+/* Placeholder "vazio" */
+.schedule-card .schedule-empty{
+  padding: 18px; text-align:center;
+  border-radius: 12px; border: 1px dashed rgba(255,255,255,.25);
+  color: rgba(255,255,255,.85);
+}

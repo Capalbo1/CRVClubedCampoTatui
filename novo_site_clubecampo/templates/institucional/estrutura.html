@@ -1,0 +1,467 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Estrutura{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/estrutura.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="estrutura-page">
+
+  {# 1) DECK — Convívio #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Deck</h2>
+        <p class="meta">Convívio</p>
+        <ul>
+          <li>Área ampla e arejada para confraternizações.</li>
+          <li>Integração com áreas externas do clube.</li>
+          <li>Disponível conforme programação interna.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel" data-autoplay="5000">
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <img src="{% static 'img/deck1.png' %}" alt="Deck do clube" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/img3.png' %}" alt="Deck - vista adicional" loading="lazy">
+              </div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 2) SALÃO SOCIAL — Convívio #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Salão Social</h2>
+        <p class="meta">Convívio</p>
+        <ul>
+          <li>Ambiente climatizado e versátil para eventos.</li>
+          <li>Estrutura de apoio para cerimônias e festas.</li>
+          <li>Agendamento mediante disponibilidade.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel" data-autoplay="5000">
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <img src="{% static 'img/salaosocial.png' %}" alt="Salão social - visão geral" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/salaosocial2.png' %}" alt="Salão social - iluminação" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/img8.png' %}" alt="Salão social - configuração de evento" loading="lazy">
+              </div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 3) ACADEMIA — Esporte #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Academia</h2>
+        <p class="meta">Esporte</p>
+        <ul>
+          <li>Equipamentos modernos e ambiente climatizado.</li>
+          <li>Acompanhamento e orientações no local.</li>
+          <li>Funcionamento conforme grade e normas internas.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <img src="{% static 'img/img4.png' %}" alt="Academia - área de musculação" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/academia2.png' %}" alt="Academia - equipamentos" loading="lazy">
+              </div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 4) ÁREA DE LUTAS — Esporte #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Área de Lutas</h2>
+        <p class="meta">Esporte</p>
+        <ul>
+          <li>Espaço acolchoado e seguro para treinos.</li>
+          <li>Atividades conforme grade esportiva.</li>
+          <li>Instrutores especializados.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <img src="{% static 'img/luta1.png' %}" alt="Área de lutas 1" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/luta2.png' %}" alt="Área de lutas 2" loading="lazy">
+              </div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 5) BALNEÁRIO — Esporte & Lazer (piscina externa) #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Balneário</h2>
+        <p class="meta">Esporte &amp; Lazer</p>
+        <ul>
+          <li>Conjunto de piscinas externas para toda a família.</li>
+          <li>Atividades conforme grade e eventos.</li>
+          <li>Equipe de apoio e segurança.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel" data-autoplay="5000">
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <img src="{% static 'img/balneario1.png' %}" alt="Piscina externa 1" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/balneario2.png' %}" alt="Piscina externa 2" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/balneario3.png' %}" alt="Piscina externa 3" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/balneario4.png' %}" alt="Piscina externa 4" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/img6.png' %}" alt="Piscina externa – vista adicional" loading="lazy">
+              </div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 6) PISCINA AQUECIDA — Bem-estar & Lazer #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Piscina Aquecida</h2>
+        <p class="meta">Bem-estar &amp; Lazer</p>
+        <ul>
+          <li>Água aquecida, conforto e acessibilidade.</li>
+          <li>Uso conforme grade e orientações técnicas.</li>
+          <li>Atividades como natação e hidroginástica.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <img src="{% static 'img/piscinaaquecida1.png' %}" alt="Piscina aquecida 1" loading="lazy">
+              </div>
+              <div class="carousel__slide">
+                <img src="{% static 'img/piscinaaquecida2.png' %}" alt="Piscina aquecida 2" loading="lazy">
+              </div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 7) CAMPO — Esporte #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Campo</h2>
+        <p class="meta">Esporte</p>
+        <ul>
+          <li>Campo oficial com manutenção periódica.</li>
+          <li>Agenda por evento/competição.</li>
+          <li>Reservas na secretaria esportiva.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel" data-autoplay="5000">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/campo1.png' %}" alt="Campo 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/campo2.png' %}" alt="Campo 2" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/campo3.png' %}" alt="Campo 3" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/campo4.png' %}" alt="Campo 4" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/campo5.png' %}" alt="Campo 5" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/campo6.png' %}" alt="Campo 6" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/campo7.png' %}" alt="Campo 7" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/img10.png' %}" alt="Campo – vista adicional" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 8) CAMPO SOCIETY — Esporte #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Campo Society</h2>
+        <p class="meta">Esporte</p>
+        <ul>
+          <li>Reservas por aplicativo/secretaria.</li>
+          <li>Treinos e jogos conforme grade esportiva.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/society1.png' %}" alt="Campo society 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/img7.png' %}" alt="Campo society – vista adicional" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 9) GINÁSIO & QUADRAS — Esporte #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Ginásio &amp; Quadras</h2>
+        <p class="meta">Esporte</p>
+        <ul>
+          <li>Estrutura para múltiplas modalidades.</li>
+          <li>Uso conforme grade esportiva.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel" data-autoplay="5000">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/quadrapoli1.png' %}" alt="Ginásio/quadra poliesportiva 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/quadrapoli2.png' %}" alt="Ginásio/quadra poliesportiva 2" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/quadrapoli3.png' %}" alt="Ginásio/quadra poliesportiva 3" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/quadratenis.png' %}" alt="Quadra de tênis 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/img11.png' %}" alt="Quadras – vista adicional" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 10) QUIOSQUES — Convívio #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Quiosques</h2>
+        <p class="meta">Convívio</p>
+        <ul>
+          <li>Espaços para churrasco e reuniões.</li>
+          <li>Reservas mediante disponibilidade.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/quiosque1.png' %}" alt="Quiosque 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/quiosque2.png' %}" alt="Quiosque 2" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/quiosquered1.png' %}" alt="Quiosque com redário" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/img5.png' %}" alt="Quiosque – vista adicional" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 11) PESQUEIRO — Lazer #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Pesqueiro</h2>
+        <p class="meta">Lazer</p>
+        <ul>
+          <li>Ambiente natural para pesca recreativa.</li>
+          <li>Normas de segurança e preservação.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/pesqueiro1.png' %}" alt="Pesqueiro 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/pesqueiro2.png' %}" alt="Pesqueiro 2" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 12) PARQUE INFANTIL — Lazer #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Parque Infantil</h2>
+        <p class="meta">Lazer</p>
+        <ul>
+          <li>Brinquedos e áreas seguras para crianças.</li>
+          <li>Acompanhamento de responsáveis obrigatório.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/pqinfantil1.png' %}" alt="Parque infantil 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/img9.png' %}" alt="Parque infantil – vista adicional" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 13) SALA DE DANÇA — Bem-estar #}
+  <section class="section bg-f1">
+    <div class="about">
+      <div class="about__text">
+        <h2 class="h-section">Sala de Dança</h2>
+        <p class="meta">Bem-estar</p>
+        <ul>
+          <li>Espaço com piso adequado e espelhos.</li>
+          <li>Aulas conforme grade e instrutores.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <div class="carousel">
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="{% static 'img/saladanca.png' %}" alt="Sala de dança 1" loading="lazy"></div>
+              <div class="carousel__slide"><img src="{% static 'img/saladanca2.png' %}" alt="Sala de dança 2" loading="lazy"></div>
+            </div>
+            <button class="carousel__btn prev" aria-label="Slide anterior">‹</button>
+            <button class="carousel__btn next" aria-label="Próximo slide">›</button>
+            <div class="carousel__dots" aria-label="Indicadores do carrossel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# 14) SAUNA — Bem-estar (1 imagem estática) #}
+  <section class="section bg-f2 theme-dark">
+    <div class="about about--reverse">
+      <div class="about__text">
+        <h2 class="h-section">Sauna</h2>
+        <p class="meta">Bem-estar</p>
+        <ul>
+          <li>Ambiente confortável para relaxamento.</li>
+          <li>Uso conforme regras e horários do clube.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <div class="media-frame">
+          <img src="{% static 'img/sauna1.png' %}" alt="Sauna" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-f1">
+    <div class="container-narrow">
+      <div class="schedule-card" aria-labelledby="sch-title">
+        <header class="schedule-head">
+          <h2 class="h-section" id="sch-title">Horários &amp; normas</h2>
+          <p>Encontre rapidamente a atividade e consulte horários e normas disponíveis.</p>
+        </header>
+
+        <div class="schedule-controls">
+          <label for="sch-q" class="sr-only">Buscar atividade</label>
+          <input id="sch-q" class="field field--soft" type="search" inputmode="search"
+                 placeholder="Buscar por atividade (ex.: judô, academia, society)..." autocomplete="off">
+          <div class="filter-chips" role="tablist" aria-label="Filtros de categoria">
+            <button type="button" class="chip filter is-active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+            <button type="button" class="chip filter" data-filter="esporte" role="tab" aria-selected="false">Esporte</button>
+            <button type="button" class="chip filter" data-filter="lazer" role="tab" aria-selected="false">Lazer</button>
+            <button type="button" class="chip filter" data-filter="bemestar" role="tab" aria-selected="false">Bem-estar</button>
+            <button type="button" class="chip filter" data-filter="convivio" role="tab" aria-selected="false">Convívio</button>
+          </div>
+        </div>
+
+        <div class="schedule-list" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{# JS local — único script da página, com defer, como na Home #}
+<script defer src="{% static 'js/estrutura.js' %}"></script>
+{% endblock %}
