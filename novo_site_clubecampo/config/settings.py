@@ -10,9 +10,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-substituir-em-producao")
 DEBUG = os.getenv("DEBUG", "true").lower() in ("1", "true", "yes", "on")
 IS_PROD = not DEBUG
 
-ALLOWED_HOSTS = [
-    h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if h.strip()
-]
+ALLOWED_HOSTS = ['*']
 
 # Quando usar domínio/HTTPS em produção, preencha com seus domínios.
 _raw_csrf = os.getenv("CSRF_TRUSTED_ORIGINS", "")
