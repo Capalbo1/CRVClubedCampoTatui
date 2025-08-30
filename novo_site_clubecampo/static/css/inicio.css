@@ -87,7 +87,9 @@ h1 important{color: #ad1010;}
   white-space: nowrap;
   font-size: clamp(24px, 3.4vw, 32px);
 }
-.hero-card p{font-size:var(--fs-lead);line-height:1.6}.hero-cta{margin-top:.25rem}
+.hero-card p{font-size:var(--fs-lead);line-height:1.6}.hero-cta{margin-top:.25rem;
+font-weight: bolder;
+color: white;}
 
 /* ========================= ABOUT (intro/grids reutilizados) ========================= */
 .about{
@@ -96,7 +98,7 @@ h1 important{color: #ad1010;}
   gap: clamp(20px, 3.5vw, 40px);
   align-items: center;
 }
-h1{color: #ad1010;}
+h1{color:white;}
 .about__text{min-width:0}
 .about__media{min-width:0}
 /* Justificar parágrafos */
