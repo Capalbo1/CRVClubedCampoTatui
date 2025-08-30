@@ -72,7 +72,7 @@ h1{font-size:var(--fs-h1)} h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)}
 /* Card do Hero – posição e largura */
 .hero-card{
   max-width: min(860px, 86vw);
-  margin: clamp(30vh, 45vh, 40vh) auto 0;
+  margin: clamp(0vh, 0vh, 0vh) auto 0;
   background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.12)); /* ↓ alfas */
   border: 1px solid rgba(255,255,255,.18);                                         /* ↓ alfa  */
   backdrop-filter: blur(4px);                                                      /* ↓ blur  */
