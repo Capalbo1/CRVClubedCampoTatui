@@ -77,7 +77,7 @@ h1{font-size:var(--fs-h1)} h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)}
   border: 1px solid rgba(255,255,255,.18);                                         /* ↓ alfa  */
   backdrop-filter: blur(4px);                                                      /* ↓ blur  */
   border-radius: 18px;
-  padding: clamp(18px, 3vw, 26px);
+  padding: clamp(16px, 3vw, 17px);
   color: var(--c-text);
   box-shadow: 0 6px 18px rgba(0,0,0,.10);
   text-align:center;
