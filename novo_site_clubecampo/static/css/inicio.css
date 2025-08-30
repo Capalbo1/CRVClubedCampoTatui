@@ -96,6 +96,7 @@ h1 important{color: #ad1010;}
   gap: clamp(20px, 3.5vw, 40px);
   align-items: center;
 }
+h1{color: #ad1010;}
 .about__text{min-width:0}
 .about__media{min-width:0}
 /* Justificar parágrafos */
