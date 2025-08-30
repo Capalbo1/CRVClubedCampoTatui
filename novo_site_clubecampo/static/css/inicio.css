@@ -66,7 +66,7 @@ h1{font-size:var(--fs-h1)} h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)}
 .hero .carousel{position:absolute;inset:0}
 .hero .carousel__slide{width:100%;height:100%;object-fit:cover;display:block}
 .hero .carousel__btn,.hero .carousel__dots{display:none} /* só revezando, sem controles */
-
+h1 important{color: #ad1010;}
 .hero__overlay{position:absolute;inset:0;z-index:1;background:radial-gradient(1200px 700px at 50% 110%,rgba(0,0,0,.08),rgba(0,0,0,.16) 65%,rgba(0,0,0,.22)),linear-gradient(180deg,rgba(2,8,23,.05) 0%,rgba(2,8,23,.12) 100%)}
 .hero__inner{position:relative;z-index:2;width:min(92vw,1040px);margin-inline:auto;padding:clamp(16px,2vw,24px)}
 /* Card do Hero – posição e largura */
